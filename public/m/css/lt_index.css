@@ -1,0 +1,71 @@
+.lt_banner {
+  width: 100%;
+}
+.lt_banner .lt_banner_box {
+  width: 100%;
+}
+.lt_nav {
+  width: 100%;
+}
+.lt_nav .lt_nav_box {
+  width: 100%;
+}
+.lt_nav .lt_nav_box li {
+  float: left;
+  width: 33.33%;
+}
+.lt_nav .lt_nav_box li a {
+  display: block;
+}
+.lt_nav .lt_nav_box li a img {
+  width: 100%;
+}
+.produts {
+  width: 100%;
+  padding: 10px;
+}
+.produts ul {
+  width: 100%;
+  list-style: none;
+}
+.produts ul li {
+  margin-top: 10px;
+  width: 48%;
+  padding-bottom: 10px;
+  text-align: center;
+  float: left;
+  border: 1px solid #ccc;
+}
+.produts ul li p {
+  height: 72px;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  padding: 10px;
+  text-align: left;
+}
+.produts ul li .nowprice {
+  color: red;
+}
+.produts ul li .old_price {
+  color: #ccc;
+}
+.produts ul li img {
+  width: 100%;
+}
+.produts ul li a {
+  display: inline-block;
+  width: 78px;
+  margin-top: 10px;
+  background-color: #007aff;
+  color: #fff;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 4px;
+}
+.produts ul li:nth-of-type(even) {
+  margin-left: 4%;
+}

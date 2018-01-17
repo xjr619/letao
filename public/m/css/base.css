@@ -1,0 +1,52 @@
+html,
+body,
+div,
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+textarea,
+form,
+input,
+a,
+img {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: none;
+}
+body {
+  font-family: "微软雅黑", sans-serif;
+  font-size: 13px;
+}
+/* 初始化input */
+input {
+  border: none;
+  outline: none;
+  border: 1px solid #ccc;
+}
+a,
+a:hover {
+  text-decoration: none;
+  color: #000;
+}
+ul,
+li {
+  list-style: none;
+}
+.clearfix::after,
+.clearfix::before {
+  content: "";
+  display: block;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+  clear: both;
+}

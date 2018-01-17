@@ -1,57 +1,80 @@
-/*search form*/
-.lt_search{
-    margin-top: 10px;
-    padding: 0 10px;
+.lt_layout {
+  overflow: hidden;
 }
-.lt_search form{
-    position: relative;
+.lt_header {
+  text-align: center;
 }
-.lt_search form .search_input{
-    background: #fff;
-    border: 1px solid #069;
-    text-align: left;
-    font-size: 12px;
+.lt_header a {
+  position: absolute;
 }
-.lt_search form .search_btn{
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 60px;
-    height: 34px;
-    background: #069;
-    text-align: center;
-    line-height: 34px;
-    color: #fff;
-    font-size: 12px;
-    border-radius: 0 6px 6px 0;
+.lt_search {
+  margin-top: 60px;
+  box-sizing: border-box;
+  padding: 0 10px;
 }
-
-/* search history */
-.lt_history{
-    font-size: 12px;
-    padding: 0 10px;
-    color: #999;
-    padding-bottom: 50px;
+.lt_search .lt_search_box {
+  position: relative;
+  width: 100%;
 }
-.lt_history .fa-trash{
-    height: 21px;
-    line-height: 21px;
+.lt_search .lt_search_box form {
+  height: 30px;
+  box-sizing: border-box;
+  width: 100%;
 }
-.lt_history ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    border-bottom: 1px dashed #ccc;
-    margin-top: 10px;
+.lt_search .lt_search_box form input {
+  border: none;
+  border: 1px solid #006699;
+  font-size: 12px;
+  margin-bottom: 0;
+  height: 30px;
+  padding: 0;
+  padding-left: 10px;
+  width: 100%;
 }
-.lt_history ul li{
-    border: 1px dashed #ccc;
-    height: 30px;
-    line-height: 30px;
-    border-bottom: none;
-    padding-left: 10px;
+.lt_search .lt_search_box > a {
+  height: 30px;
+  display: block;
+  text-align: center;
+  line-height: 30px;
+  color: #fff;
+  width: 60px;
+  position: absolute;
+  background-color: #006699;
+  right: 0;
+  top: 0;
 }
-.lt_history ul li .mui-icon-closeempty{
-    float: right;
-    margin-top: 2px;
+.info_title {
+  overflow: hidden;
+  padding: 0 10px;
+}
+.info_title span {
+  line-height: 30px;
+  color: #999999;
+  font-size: 12px;
+}
+.info_title span:first-of-type {
+  float: left;
+}
+.info_title span:last-of-type {
+  float: right;
+}
+.search_content {
+  padding: 0 15px;
+}
+.search_content li {
+  height: 26px;
+  list-style: none;
+  margin-top: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  padding: 0 5px;
+}
+.search_content li > a {
+  float: left;
+  color: #ccc;
+}
+.search_content li > span {
+  float: right;
+  color: #ccc;
+  margin-top: 6px;
 }

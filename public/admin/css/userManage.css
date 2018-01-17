@@ -1,0 +1,10 @@
+.main_content table {
+  width: 100%;
+  margin: 0 auto;
+}
+.main_content table tr > th,
+.main_content table tr > td {
+  border: 1px solid #ccc;
+  text-align: center;
+  line-height: 50px;
+}

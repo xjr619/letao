@@ -1,98 +1,61 @@
 $(function () {
-    /*1.分类列表分页展示*/
-    var currPage = 1;
-    var render = function(){
-        getCategoryFirstData({
-            page: currPage,
-            pageSize: 10
-        }, function (data) {
-            /*渲染页面*/
-            $('tbody').html(template('template',data));
-            setPaginator(data.page,Math.ceil(data.total/data.size),render);
-        });
-    }
-    render();
-    /*2.分页展示*/
-    var setPaginator = function(pageCurr,pageSum,callback){
-        /*获取需要初始的元素 使用bootstrapPaginator方法*/
-        $('.pagination').bootstrapPaginator({
-            /*当前使用的是3版本的bootstrap*/
-            bootstrapMajorVersion:3,
-            /*配置的字体大小是小号*/
-            size:'small',
-            /*当前页*/
-            currentPage:pageCurr,
-            /*一共多少页*/
-            totalPages:pageSum,
-            /*点击页面事件*/
-            onPageClicked:function(event, originalEvent, type, page){
-                /*改变当前页再渲染 page当前点击的按钮的页面*/
-                currPage = page;
-                callback && callback();
-            }
-        });
-    }
-
-    /*3.添加一级分类功能*/
-    $('#addBtn').on('click',function () {
-       /*显示模态框*/
-       $('#addModal').modal('show');
-    });
-    /*进行表单校验*/
-    $('#form').bootstrapValidator({
-        /*默认样式*/
-        feedbackIcons: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        /*设置校验属性*/
-        fields:{
-            categoryName:{
-                validators: {
-                    notEmpty: {
-                        message: '一级分类名称不能为空'
-                    }
-                }
-            }
-        }
-    }).on('success.form.bv', function(e) {
-        console.log(0);
-        e.preventDefault();
-        /*如果点击需要校验  点击的按钮必须是提交按钮  并且和当前表单关联*/
-        /*校验成功后的点击事件  完成数据的提交*/
-        var $form = $(e.target);
+    // 渲染一级分类内容
+    var currentPage = 1
+    var render = function(pageSize = 3){
         $.ajax({
-            type:'post',
-            url:'/category/addTopCategory',
-            data:$form.serialize(),
-            dataType:'json',
-            success:function (data) {
-                if(data.success){
-                    /*关闭模态框*/
-                    $('#addModal').modal('hide');
-                    /*渲染第一页*/
-                    currPage = 1;
-                    render();
-                    /*重置表单*/
-                    $form.data('bootstrapValidator').resetForm();
-                    $form.find('input').val('');
-                }
+            url:"/category/queryTopCategoryPaging",
+            type:"GET",
+            dataType:"json",
+            data:{
+                page:currentPage,
+                pageSize:pageSize
+            },
+            success:function(result){
+                console.log(result);
+               var html = template("firstCategoryTem",result);
+               $("table tbody").html(html);
+            //    渲染页面的时候同时渲染分页区域，
+            setPagination(Math.ceil(result.total / result.size));
+            }
+        })
+    };
+    // 分页区渲染函数
+    function setPagination(total){
+        $(".mypagintor").bootstrapPaginator({
+            bootstrapMajorVersion:3,
+            size:"small",
+            currentPage:currentPage,
+            totalPages:total,
+            onPageClicked:function(event,originalEvent,type,page){
+                // 点击的时候改变当前页
+                currentPage = page;
+                // 点击分页区域同时渲染页面
+                render();
             }
         });
-    });
-
-
-});
-/*纯粹的获取数据*/
-var getCategoryFirstData = function (params, callback) {
-    $.ajax({
-        type: 'get',
-        url: '/category/queryTopCategoryPaging',
-        data: params,
-        dataType: 'json',
-        success: function (data) {
-            callback && callback(data);
-        }
-    });
-}
+    }
+    // 进入的时候渲染
+    render();
+    // 点击出现模态框添加一级分类
+    $(".showfirstModal").on("click",function(){
+        $('.fisrtModal').modal('show');
+        $(".addFisrt").on("click",function(){
+            var categoryName = $(".categoryName").val();
+            $.ajax({
+                url:"/category/addTopCategory",
+                type:"POST",
+                data:{
+                    categoryName:categoryName
+                },
+                dataType:"json",
+                success:function(result){
+                   if(result.success){
+                    $('.fisrtModal').modal('hide');
+                    // 消失之后自动渲染
+                    render();
+                   }
+                }
+            });
+        })
+    })
+})

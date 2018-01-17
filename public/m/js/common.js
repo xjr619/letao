@@ -1,44 +1,35 @@
-/*·â×°¹¤¾ßº¯Êı*/
-window.lt = {};
-/*»ñÈ¡µØÖ·À¸²ÎÊı*/
-lt.getUrlParams = function(){
-    /*ÄÃµ½ÒÔgetĞÎÊ½´«µİµÄµØÖ·À¸µÄÊı¾İ ?key=1&name=10*/
-    var search = location.search;
-    /*ĞèÒª°Ñ×Ö·û´®×ª»»³É¶ÔÏó  ±ãÓÚ¿ª·¢Ê¹ÓÃ*/
-    var params = {};
-    /*Èç¹ûÓĞ£¿´ú±íÓĞ²ÎÊı*/
-    /*Ã»ÓĞÎÊºÅ¾ÍÃ»ÓĞ²ÎÊı*/
-    if(search.indexOf('?') == 0){
-        search = search.substr(1);
-        var arr = search.split('&');
-        for(var i = 0 ; i < arr.length ; i++){
-            /*itemArr name=10  ----> [name,10]*/
-            var itemArr = arr[i].split('=');
-            params[itemArr[0]] = itemArr[1];
-        }
-    }
-    return params;
-}
-/*µÇÂ¼À¹½Ø  ·²ÊÂĞèÒªµÇÂ¼²Ù×÷ µ÷ÓÃ*/
-lt.ajaxFilter = function(options){
-    $.ajax({
-        type:options.type||'get',
-        url:options.url||location.pathname,
-        data:options.data||{},
-        dataType:options.dataType||'json',
-        beforeSend:function(){
-            options.beforeSend && options.beforeSend();
-        },
-        success:function(data){
-            /* error Èç¹û  400  ´ú±íÎ´µÇÂ¼ È¥µÇÂ¼Ò³  Ğ¯´øurl*/
-            if(data.error == 400){
-                location.href = '/m/user/login.html?returnUrl='+location.href
-            }else{
-                options.success && options.success(data);
-            }
-        },
-        error:function(){
-            options.error && options.error();
-        }
-    });
+//è·å¾—slideræ’ä»¶å¯¹è±¡
+mui('.mui-slider').slider({
+  interval:2000//è‡ªåŠ¨è½®æ’­å‘¨æœŸï¼Œè‹¥ä¸º0åˆ™ä¸è‡ªåŠ¨æ’­æ”¾ï¼Œé»˜è®¤ä¸º0ï¼›
+});
+// åŒºåŸŸæ»šåŠ¨
+mui('.mui-scroll-wrapper').scroll({
+  deceleration: 0.0005, //flick å‡é€Ÿç³»æ•°ï¼Œç³»æ•°è¶Šå¤§ï¼Œæ»šåŠ¨é€Ÿåº¦è¶Šæ…¢ï¼Œæ»šåŠ¨è·ç¦»è¶Šå°ï¼Œé»˜è®¤å€¼0.0006
+  indicators: false,
+  scrollY: true
+});
+// åº•éƒ¨èœå•æ åˆ‡æ¢
+$(".lt_footer > a").on("tap",function(e){
+  $(this).siblings().removeClass("now");
+  $(this).addClass("now");
+})
+//å°è£…åˆ†å‰²æ–¹æ³•
+var lt = {
+   getUrlParameters:function(str){
+    //  å®šä¹‰ç©ºå¯¹è±¡æœ€ä¸ºè¿”å›æ•°æ®
+     var obj = {};
+       /*str:"?proname=1&name=jack&age=20"*/
+    //  æŠŠæ•°æ®çš„?å·ç»™å»æ‰
+     var str = str.substring(1);
+    //  æŒ‰&åˆ†å‰²ä¸€æ¬¡
+     var arr = str.split("&");
+     for(var i = 0; i < arr.length; i ++){
+      //  æ¯ä¸ªåˆ†å¼€çš„å­—ç¬¦åˆæŒ‰=åˆ†å‰²å½¢æˆä¸¤ä¸ª
+         var temp = arr[i].split("=");
+        //  ç”¨å¯¹è±¡åˆ†åˆ«å­˜é”®å’Œå€¼ï¼Œç­‰å·å·¦è¾¹æ˜¯é”®å³è¾¹æ˜¯å€¼
+        obj[temp[0]] = temp[1];
+     }
+    //  éå†å­˜å®Œä¹‹åæŠŠå¯¹è±¡è¿”å›
+     return obj;
+   }
 }

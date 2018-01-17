@@ -1,95 +1,63 @@
-/*初始化区域滚动组件*/
-mui('.mui-scroll-wrapper').scroll({
-    indicators:false
-});
-$(function(){
-    /*都会和localStorage打交道   约定一个键  leTaoHistory */
-
-    /*1渲染列表*/
-    /*获取*/
-    var historyList = getHistoryData();
-    /*渲染*/
-    $('.lt_history').html(template('historyTpl',{list:historyList}));
-    $('.search_input').val('');
-
-    /*2点击搜索*/
-    $('.search_btn').on('tap',function(){
-        /*获取关键字*/
-        var key = $.trim($('.search_input').val());
-        /*如果用户没有输入*/
-        if(!key){
-            /*提示*/
-            mui.toast('请输入关键字');
-            return false;
-        }
-        /*记录这一次的搜索*/
-        var arr = getHistoryData();
-
-        /*1.在正常的10条记录内 正常添加*/
-        /*2.已经10条记录了    添加一条 并且 删除最早的一条 */
-        /*3.如果有相同记录    添加一条 并且 删除相同的一条 */
-        /*是否有相同数据*/
-        var isHave = false;
-        var haveIndex;
-        for(var i = 0 ; i < arr.length ; i ++){
-            if(key == arr[i]){
-                isHave = true;
-                haveIndex = i;
-                break;
-            }
-        }
-        if(isHave){
-            /*3.如果有相同记录*/
-            arr.push(key);
-            /*删除*/
-            arr.splice(haveIndex,1);
-        }else{
-            if(arr.length < 10){
-                /*1.在正常的10条*/
-                arr.push(key);
-            }else{
-                /*已经10条记录*/
-                arr.push(key);
-                /*清除第一条*/
-                arr.splice(0,1);
-            }
-        }
-        /*存起来*/
-        localStorage.setItem('leTaoHistory',JSON.stringify(arr));
-        /*跳转搜索列表*/
-        location.href = 'searchList.html?key='+key;
-    });
-
-    /*3删除记录*/
-    $('.lt_history').on('tap','.mui-icon',function(){
-        /*1.获取索引*/
-        var index = $(this).attr('data-index');
-        /*2.获取数据*/
-        var arr = getHistoryData();
-        /*3.删除数据*/
-        arr.splice(index,1);
-        /*4.存储数据*/
-        localStorage.setItem('leTaoHistory',JSON.stringify(arr));
-        /*5.重新渲染*/
-        $('.lt_history').html(template('historyTpl',{list:arr}));
-    });
-
-    /*4清空记录*/
-    $('.lt_history').on('tap','.fa',function(){
-        /*清空数据*/
-        localStorage.setItem('leTaoHistory','');
-        /*重新渲染*/
-        $('.lt_history').html(template('historyTpl',{list:[]}));
-    });
-
-});
-/*获取存储数据*/
-var getHistoryData = function(){
-    /*1.约定一个键  leTaoHistory 值存的是json格式的字符串*/
-    /*2.通过这个键获取值 如果有就使用 如果没有默认空数组的字符串*/
-    var str = localStorage.getItem('leTaoHistory')||'[]';
-    /*3.转成成js数据*/
-    var arr = JSON.parse(str);
-    /*4.返回js可操作的数组*/
-    return arr;
+// 根据读取的信息渲染模板
+function loadHisroty(){
+  // 得到数据
+  var arr = getHistoryData();
+  // 要渲染的html
+  var html = template("historyTemp",{"items":arr});
+  $(".search_content ul").html(html);
 }
+// 从本地存储读取数据约定名字是history
+function getHistoryData(){
+  // 得到的是数组信息的字符串
+  var str = localStorage.getItem("history");
+  // 转化成数组信息.没有的话给个空数组防止模板错误
+  var arr = JSON.parse(str || "[]");
+  return arr;
+}
+loadHisroty();
+// 当点击搜索是跳转并往本地存储里面存上表单里面的值
+$(".lt_search_box .search_btn").on("tap",function(){
+    // 得到文本框中的值
+    var value = $(".lt_search_box form > input").val();
+  // 得到从前localStorage对象里面包含的数据
+  var arr = getHistoryData();
+  // 跳转
+  location.href = "search_list.html?proName=" + value;
+  // 判断要存的数据原来有么有的话删除原来的在存
+  for(var i = 0;i < arr.length; i++){
+    if(value == arr[i]){
+      arr.splice(i,1);
+      break;
+    }
+  }
+  // 判断是否超过十条超过就删除最先加的
+  if(arr.length ==10){
+    arr.splice(0,1);
+  }
+  // 把值重新推进数组
+  arr.push(value);
+  // 重新把数组变成数组形式的字符串信息存进本地数据库
+  var str = JSON.stringify(arr);
+  localStorage.setItem("history",str);
+  // 更新渲染历史记录
+  // loadHisroty();
+  var html = template("historyTemp",{"items":arr});
+  $(".search_content ul").html(html);
+})
+// 点击删除记录删除对应的记录
+$(".search_content ul").on("tap",".icon_delete",function(){
+  // 拿到要删除的的记录索引
+ var index = $(this).data("index");
+  // 从本地存储中获取信息遍历要删除的记录相同的就删除
+  var arr = getHistoryData();
+  arr.splice(index,1);
+  // 删除完毕重新把数组写进本地存储重新渲染
+  var str = JSON.stringify(arr);
+  localStorage.setItem("history",str);
+  loadHisroty();
+})
+// 清空历史记录
+$(".info_title .icon_clear").on("tap",function(){
+  localStorage.setItem("history","[]");
+  loadHisroty();
+})

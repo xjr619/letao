@@ -1,0 +1,65 @@
+.lt_header .lt_top_right {
+  float: right;
+}
+.lt_parent #OA_task_2 li .mui-slider-right a:first-of-type {
+  background-color: #007aff;
+}
+.lt_parent #OA_task_2 li .mui-slider-right a:last-of-type {
+  background-color: #dd524d;
+}
+.lt_parent #OA_task_2 li .mui-table-cell .left {
+  float: left;
+  width: 30%;
+  position: relative;
+}
+.lt_parent #OA_task_2 li .mui-table-cell .left img {
+  width: 80px;
+}
+.lt_parent #OA_task_2 li .mui-table-cell .left .chk {
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+}
+.lt_parent #OA_task_2 li .mui-table-cell .right {
+  width: 70%;
+  float: right;
+}
+.lt_parent #OA_task_2 li .mui-table-cell .right .description {
+  font-size: 14px;
+}
+.lt_parent #OA_task_2 li .mui-table-cell .right .cart_price {
+  color: #f00;
+}
+.lt_parent #OA_task_2 li .mui-table-cell .right .cart_oldPrice {
+  font-size: 12px;
+}
+.lt_parent #OA_task_2 li .mui-table-cell .right .cart_num {
+  float: right;
+}
+.lt_parent #OA_task_2 li .mui-table-cell .right .cart_size {
+  font-size: 14px;
+}
+.size_box {
+  font-size: 13px;
+}
+.size_box span {
+  margin-top: 10px;
+  font-size: 16px;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #ccc;
+  text-align: center;
+  line-height: 25px;
+}
+.size_box span.now {
+  background-color: orange;
+}
+.cart_order {
+  position: absolute;
+  bottom: 43px;
+  z-index: 9999;
+  width: 100%;
+  background-color: #ccc;
+  height: 40px;
+}

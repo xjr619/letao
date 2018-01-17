@@ -1,0 +1,45 @@
+.lt_header{
+  .icon_back{
+    position: absolute;
+  }
+}
+.lt_parent{
+
+  .add_adress{
+    background-color: #fff;
+    a{
+      color: lighten(#000,20%);
+    }
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid #ccc;
+  }
+  .adress_detail{
+    background-color: #fff;
+    padding: 10px 10px;
+    a{
+      display: block;
+      p:first-of-type{
+        color: #000;
+        margin-bottom: 0px;
+      }
+      p:last-of-type{
+        position: relative;
+        font-size: 10px;
+        &::after{
+          position: absolute;
+          right: 0;
+          top: 0;
+          content: "";
+          display: block;
+          width: 12px;
+          height: 12px;
+          border-right: 1px solid #ccc;
+          border-bottom: 1px solid #ccc;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}

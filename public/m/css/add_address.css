@@ -1,0 +1,12 @@
+.lt_header a {
+  position: absolute;
+}
+.lt_parent {
+  padding: 10px;
+}
+.lt_parent button {
+  width: 100%;
+  background-color: #007aff;
+  border-radius: 4px;
+  color: #fff;
+}

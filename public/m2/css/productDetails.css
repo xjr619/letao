@@ -1,0 +1,53 @@
+.lt_main .lt_parent .lt_pro_details {
+  width: 100%;
+  list-style: none;
+  padding: 0px 5px;
+}
+.lt_main .lt_parent .lt_pro_details li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+.lt_main .lt_parent .lt_pro_details li:first-of-type {
+  font-size: 18px;
+}
+.lt_main .lt_parent .lt_pro_details li:nth-of-type(2) {
+  font-size: 13px;
+}
+.lt_main .lt_parent .lt_pro_details li:nth-of-type(2) .pro_price {
+  font-size: 20px;
+  color: red;
+}
+.lt_main .lt_parent .lt_pro_details li:nth-of-type(2) > del {
+  color: #888;
+}
+.lt_main .lt_parent .lt_pro_details li:nth-of-type(3) {
+  padding-top: 0;
+}
+.lt_main .lt_parent .lt_pro_details li:nth-of-type(3) span {
+  width: 26px;
+  height: 26px;
+  display: inline-block;
+  border: 1px solid #bbb;
+  line-height: 26px;
+  text-align: center;
+  margin-top: 10px;
+}
+.lt_main .lt_parent .lt_pro_details li:nth-of-type(3) span.now {
+  background-color: #ffbf6e;
+}
+.lt_main .lt_parent .lt_pro_details li:nth-of-type(4) {
+  font-size: 14px;
+}
+.lt_footer {
+  background-color: #ddd;
+  padding-top: 6px;
+}
+.lt_footer .fa {
+  font-size: 22px;
+  margin-left: 10px;
+  color: #666;
+}
+.lt_footer button {
+  float: right;
+  padding: 6px 22px;
+}

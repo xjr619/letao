@@ -1,0 +1,99 @@
+html,body{
+  height:100%;
+}
+.aside{
+  height: 100%;
+  width: 222px;
+  background-color: #262626;
+  float: left;
+  .lt_logo{
+    line-height: 58px;
+    background-color: #3f78bc;
+    text-align: center;
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+  }
+  p.superManager{
+    padding: 20px;
+    color: #fff;
+    img{
+      width: 60px;
+      border-radius: 50%;
+    }
+  }
+  .lt_nav{
+    li{
+      cursor: pointer;
+      list-style: none;
+      padding: 10px 0px;
+        a{
+          color: #888888;
+          text-decoration: none;
+        }
+        &.classify{
+          p{
+            color: #888888;
+            display: none;
+            cursor: pointer;
+          }
+        }
+      &.now{
+        a{
+          color: #fff;
+        }
+      }
+    }
+  }
+
+}
+.main{
+  height:100%;
+ padding-left: 222px;
+   &.now{
+     padding-left: 0;
+   }
+   .main_top{
+
+    height: 58px;
+    a{
+      color: #fff;
+      margin-top: 22px;
+    }
+    background-color: #418af2;
+    .change_menu{
+      float: left;
+      margin-left: 10px;
+    }
+    .login_out{
+      float: right;
+      margin-right: 10px;
+    }
+  }
+  .main_content{
+    padding: 10px;
+    .breadcrumb{
+      a{
+        text-decoration:none;
+      }
+    }
+    .lt_tab1,.lt_tab2{
+      float: left;
+      width: 45%;
+      height: 400px;
+    }
+    .lt_tab2{
+      margin-left: 10%;
+    }
+    table{
+      width: 100%;
+      margin: 0 auto;
+      tr>th,tr>td{
+        border: 1px solid #ccc;
+        text-align: center;
+        line-height: 50px;
+      }
+    }
+  }
+}

@@ -1,130 +1,92 @@
-body{
-    font-family: "Microsoft YaHei";
+html,
+body {
+  height: 100%;
 }
-a:hover,a:active,a:focus{
-    text-decoration: none;
+.aside {
+  height: 100%;
+  width: 222px;
+  background-color: #262626;
+  float: left;
 }
-/*login page*/
-.bg_login{
-    background: #222d32;
+.aside .lt_logo {
+  line-height: 58px;
+  background-color: #3f78bc;
+  text-align: center;
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
 }
-.mt_150{
-    margin-top: 150px;
+.aside p.superManager {
+  padding: 20px;
+  color: #fff;
 }
-.mr_50{
-    margin-right: 50px;
+.aside p.superManager img {
+  width: 60px;
+  border-radius: 50%;
 }
-.mb_15{
-    margin-bottom: 15px;
+.aside .lt_nav li {
+  cursor: pointer;
+  list-style: none;
+  padding: 10px 0px;
 }
-/*main page*/
-.ad_aside{
-    width: 180px;
-    height: 100%;
-    background: #222d32;
-    position: absolute;
+.aside .lt_nav li a {
+  color: #888888;
+  text-decoration: none;
 }
-.ad_aside .brand{
-    width: 100%;
-    height: 50px;
-    background: #367fa9;
+.aside .lt_nav li.classify p {
+  color: #888888;
+  display: none;
+  cursor: pointer;
 }
-.ad_aside .brand a{
-    color: #fff;
-    display: block;
-    line-height: 50px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
+.aside .lt_nav li.now a {
+  color: #fff;
 }
-.ad_aside .user{
-    padding: 30px 20px;
+.main {
+  height: 100%;
+  padding-left: 222px;
 }
-.ad_aside .user img{
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
-    overflow: hidden;
+.main.now {
+  padding-left: 0;
 }
-.ad_aside .user span{
-    color: #fff;
-    font-size: 12px;
+.main .main_top {
+  height: 58px;
+  background-color: #418af2;
 }
-.ad_aside .menu ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.main .main_top a {
+  color: #fff;
+  margin-top: 22px;
 }
-.ad_aside .menu ul li{
+.main .main_top .change_menu {
+  float: left;
+  margin-left: 10px;
 }
-.ad_aside .menu ul li a{
-    display: block;
-    height: 40px;
-    line-height: 40px;
-    color: #aaa;
-    border: 3px solid transparent;
-    padding-left: 30px;
+.main .main_top .login_out {
+  float: right;
+  margin-right: 10px;
 }
-.ad_aside .menu ul li.now > a{
-    border-left-color: #3c8dbc;
-    background: #1d1f21;
-    color: #fff;
+.main .main_content {
+  padding: 10px;
 }
-.ad_aside .menu ul li .child a{
-    height: 30px;
-    line-height: 30px;
-    padding-left: 50px;
-    font-size: 12px;
+.main .main_content .breadcrumb a {
+  text-decoration: none;
 }
-.ad_aside .menu ul li .child a.now{
-    color: #fff;
+.main .main_content .lt_tab1,
+.main .main_content .lt_tab2 {
+  float: left;
+  width: 45%;
+  height: 400px;
 }
-
-
-
-.ad_section{
-    padding-left: 180px;
+.main .main_content .lt_tab2 {
+  margin-left: 10%;
 }
-.ad_section.menu{
-    padding-left: 0;
+.main .main_content table {
+  width: 100%;
+  margin: 0 auto;
 }
-.ad_section .ad_nav{
-    height: 50px;
-    background: #3c8dbc;
-    margin-bottom: 20px;
-}
-.ad_section .ad_nav a{
-    font-size: 16px;
-    color: #fff;
-    margin-top: 14px;
-}
-.ad_section .ad_nav a:first-child{
-    margin-left: 15px;
-    float: left;
-}
-.ad_section .ad_nav a:last-child{
-    margin-right: 15px;
-    float: right;
-}
-
-.ad_content{
-    margin-top: 20px;
-}
-.ad_content .picTable{
-    float: left;
-    width: 45%;
-    height: 400px;
-}
-.ad_content .picTable:first-child{
-    margin-right: 10%;
-}
-
-.table th,.table td{
-    text-align: center;
-}
-.page{
-    text-align: right;
-}
-.page .pagination{
-    margin-top: 0;
+.main .main_content table tr > th,
+.main .main_content table tr > td {
+  border: 1px solid #ccc;
+  text-align: center;
+  line-height: 50px;
 }

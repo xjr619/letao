@@ -1,0 +1,55 @@
+.lt_main {
+  padding: 55px 10px;
+}
+.lt_main .lt-searchBox {
+  width: 100%;
+  height: 30px;
+  position: relative;
+}
+.lt_main .lt-searchBox > input {
+  width: 100%;
+  height: 30px;
+  border: 1px solid #1E7AB6;
+  border-radius: 4px;
+}
+.lt_main .lt-searchBox > a {
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #1E7AB6;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 0 4px 4px 0;
+  color: #fff;
+}
+.lt_main .lt_searchHistory {
+  margin-top: 10px;
+}
+.lt_main .lt_searchHistory .lt_searchTitle {
+  font-size: 13px;
+}
+.lt_main .lt_searchHistory .lt_searchTitle > span {
+  color: #666;
+}
+.lt_main .lt_searchHistory .lt_searchTitle > a {
+  float: right;
+  color: #666;
+}
+.lt_main .lt_searchHistory .lt_searchList {
+  margin-top: 10px;
+}
+.lt_main .lt_searchHistory .lt_searchList > ul {
+  width: 100%;
+  list-style: none;
+  border: 1px solid #eee;
+}
+.lt_main .lt_searchHistory .lt_searchList > ul > li {
+  padding: 5px 10px;
+  border-bottom: 1px dashed #ee8571;
+  font-size: 14px;
+}
+.lt_main .lt_searchHistory .lt_searchList > ul > li > span {
+  float: right;
+}

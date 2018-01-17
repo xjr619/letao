@@ -1,0 +1,82 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+html,body{
+  height: 100%;
+  width: 100%;
+}
+.lt_layout{
+  height: 100%;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  position: relative;
+}
+.lt_header{
+  height: 45px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #006699;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  line-height: 45px;
+  a{
+    display: block;
+    height: 100%;
+    width: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #fff;
+  }
+  a.icon_back{
+    float: left;
+
+  }
+  a.icon_search{
+    float: right;
+  }
+}
+.lt_footer{
+  height: 45px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #006699;
+  color: #fff;
+  font-size: 0;
+  line-height: 0;
+  a{
+    text-align: center;
+    font-size: 16px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    padding-top: 7px;
+    color: #fff;
+    &.now{
+      color: orange;
+    }
+    > span{
+      margin-top: 3px;
+      display: block;
+      font-size: 12px;
+    }
+  }
+}
+// 区域滚动
+.lt_main{
+  height: 100%;
+  width: 100%;
+  padding: 45px 0;
+  .lt_parent{
+    width:100%;
+    height: 100%;
+    position: relative;
+   }
+}
